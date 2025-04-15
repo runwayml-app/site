@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Runway: The Synthetic Muse - Redefining Creativity in the Age of Intelligent Vision. Explore the future of generative art, intelligent design, and creative automation." name="description"/>
+<meta content="runway, gen 4, runway ml, runway ai, ai creativity, generative art, intelligent design, visual storytelling, synthetic aesthetics, creative automation, neural inspiration, machine vision, next-gen content, digital imagination, future of creation" name="keywords"/>
+<title>Runway - The Synthetic Muse</title>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;700&amp;family=Roboto:wght@300;400;700&amp;family=Space+Mono&amp;display=swap" rel="stylesheet"/>
+<style>
+    :root {
+        --deep-space-black: #0C0C0C;
+        --nebula-blue: #3A4CA8;
+        --cosmic-silver: #E6E6E6;
+        --neon-pink: #FF00FF;
+        --electric-teal: #00FFFF;
+        --plasma-orange: #FF6600;
+    }
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-color: var(--deep-space-black);
+        color: var(--cosmic-silver);
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Exo 2', sans-serif;
+    }
+    .accent-text {
+        font-family: 'Space Mono', monospace;
+    }
+    .bg-gradient {
+        background: linear-gradient(135deg, #3A4CA8, #6A1B9A);
+    }
+    .card {
+        background-color: rgba(58, 76, 168, 0.1);
+        border: 1px solid var(--nebula-blue);
+        border-radius: 15px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(255, 0, 255, 0.2);
+    }
+    .btn-primary {
+        background-color: var(--nebula-blue);
+        border-color: var(--nebula-blue);
+        color: var(--cosmic-silver);
+        transition: all 0.3s ease;
+    }
+    .btn-primary:hover {
+        background-color: var(--neon-pink);
+        border-color: var(--neon-pink);
+    }
+    @media (prefers-reduced-motion: reduce) {
+        * {
+            transition: none !important;
+            animation: none !important;
+        }
+    }
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        // Implement micro-interactions
+        document.querySelectorAll('.btn, .card').forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                element.style.transform = 'scale(1.05)';
+            });
+            element.addEventListener('mouseleave', () => {
+                element.style.transform = 'scale(1)';
+            });
+        });
+
+        // Implement smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Implement parallax scrolling
+        window.addEventListener('scroll', () => {
+            const parallaxElements = document.querySelectorAll('.parallax');
+            parallaxElements.forEach(element => {
+                const speed = element.dataset.speed;
+                element.style.transform = `translateY(${window.pageYOffset * speed}px)`;
+            });
+        });
+    });
+</script>
+<div class="position-fixed top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center" id="cookie-popup" style="background-color: rgba(12, 12, 12, 0.8); z-index: 9999;">
+<div class="bg-dark text-light p-4 rounded" style="max-width: 400px;">
+<h2 class="h4 mb-3" style="font-family: 'Exo 2', sans-serif; color: #E6E6E6;">Cosmic Cookie Consent</h2>
+<p style="font-family: 'Roboto', sans-serif; color: #E6E6E6;">Our starship uses cookies to enhance your interstellar journey. Do you agree to our use of cookies?</p>
+<div class="d-flex justify-content-end mt-3">
+<button class="btn btn-outline-light me-2" id="cookie-disagree" style="font-family: 'Space Mono', monospace;">Disagree</button>
+<button class="btn btn-primary" id="cookie-agree" style="background-color: #3A4CA8; border-color: #3A4CA8; font-family: 'Space Mono', monospace;">Agree</button>
+</div>
+</div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const cookiePopup = document.getElementById('cookie-popup');
+    const agreeButton = document.getElementById('cookie-agree');
+    const disagreeButton = document.getElementById('cookie-disagree');
+
+    function hideCookiePopup() {
+        cookiePopup.style.display = 'none !important';
+        cookiePopup.remove();
+    }
+
+    function setCookiePreference(agreed) {
+        localStorage.setItem('cookiePreference', agreed ? 'agreed' : 'disagreed');
+        hideCookiePopup();
+    }
+
+    if (localStorage.getItem('cookiePreference') === null) {
+        cookiePopup.style.display = 'flex';
+    } else {
+        hideCookiePopup();
+    }
+
+    agreeButton.addEventListener('click', function() {
+        setCookiePreference(true);
+    });
+
+    disagreeButton.addEventListener('click', function() {
+        setCookiePreference(false);
+    });
+});
+</script>
+</head>
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
+<div style="flex: 1;">
+<header>
+<header class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+<div class="container">
+<a class="navbar-brand" href="/" style="font-family: 'Exo 2', sans-serif; font-size: 1.8rem; color: #E6E6E6;">
+      Runway
+    </a>
+<button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+<ul class="navbar-nav">
+<li class="nav-item">
+<a class="nav-link" href="posts.html" style="font-family: 'Roboto', sans-serif; color: #E6E6E6; font-size: 1.1rem; margin: 0 15px;">Posts</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="about.html" style="font-family: 'Roboto', sans-serif; color: #E6E6E6; font-size: 1.1rem; margin: 0 15px;">About</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="contacts.html" style="font-family: 'Roboto', sans-serif; color: #E6E6E6; font-size: 1.1rem; margin: 0 15px;">Contacts</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="privacy_policy.html" style="font-family: 'Roboto', sans-serif; color: #E6E6E6; font-size: 1.1rem; margin: 0 15px;">Privacy Policy</a>
+</li>
+</ul>
+</div>
+</div>
+</header>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap');
+
+  .navbar {
+    background: linear-gradient(135deg, #0C0C0C, #3A4CA8) !important;
+  }
+
+  .navbar-brand:hover, .nav-link:hover {
+    color: #00FFFF !important;
+    transition: color 0.3s ease;
+  }
+
+  .nav-link {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #FF00FF;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  .nav-link:hover::after {
+    transform: scaleX(1);
+  }
+
+  @media (max-width: 991px) {
+    .navbar-nav {
+      text-align: center;
+    }
+    .nav-item {
+      margin: 10px 0;
+    }
+  }
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+  const navLinks = document.querySelectorAll('.nav-link');
+  
+  navLinks.forEach(link => {
+    link.addEventListener('mouseover', () => {
+      link.style.textShadow = '0 0 10px #00FFFF';
+    });
+    
+    link.addEventListener('mouseout', () => {
+      link.style.textShadow = 'none';
+    });
+  });
+
+  const navbarToggler = document.querySelector('.navbar-toggler');
+  const navbarCollapse = document.querySelector('.navbar-collapse');
+
+  navbarToggler.addEventListener('click', () => {
+    navbarCollapse.classList.toggle('show');
+  });
+});
+</script>
+</header>
+<div class="container my-5">
+<h1 class="display-4 mb-4">Privacy Policy</h1>
+<p class="lead mb-4">At Runway, we take your privacy seriously. This policy outlines how we collect, use, and safeguardtect your data as you explore the frontiers of AI-powered creativity.</p>
+<section class="mb-5">
+<h2 class="h3 mb-3">Data Collection</h2>
+<p>We collect the following types of information:</p>
+<ul>
+<li>Account information (e.g., username, email)</li>
+<li>Usage data (e.g., interactions with our AI tools)</li>
+<li>Generated content (e.g., images, designs created with Runway)</li>
+<li>Device and browser information</li>
+</ul>
+</section>
+<section class="mb-5">
+<h2 class="h3 mb-3">Use of Data</h2>
+<p>Your data helps us:</p>
+<ul>
+<li>Imenhanceve our generative AI modelsels</li>
+<li>Personalize your creative experience</li>
+<li>Develop new features for intelligent design</li>
+<li>Analyze trends in synthetic aesthetics</li>
+</ul>
+</section>
+<section class="mb-5">
+<h2 class="h3 mb-3">Data Experttection</h2>
+<p>We employ advanced security measures to safeguard your information:</p>
+<ul>
+<li>End-to-end encryption for all data transfers</li>
+<li>Regular security audits of our neural networks</li>
+<li>Strict access controls for our machine vision systems</li>
+<li>Automated threat detection powered by AI</li>
+</ul>
+</section>
+<section class="mb-5">
+<h2 class="h3 mb-3">Your Rights</h2>
+<p>As a user of Runway, you have the right to:</p>
+<ul>
+<li>Access and retrieve your personal data</li>
+<li>Request deletion of your account and associated data</li>
+<li>Opt-out of certain data handlingcessing activities</li>
+<li>Be informed of any significant changes to this policy</li>
+</ul>
+</section>
+<section class="mb-5">
+<h2 class="h3 mb-3">Updates to This Policy</h2>
+<p>As we continue to redefine creativity in the age of intelligent vision, we may update this policy. We'll notify you of any significant changes and how they affect your rights.</p>
+</section>
+<section>
+<h2 class="h3 mb-3">Contact Us</h2>
+<p>If you have any questions about how we're using AI to safeguardtect your privacy or any other concerns, please contact our data specialisttection team at:</p>
+<p>Email: privacy@runway.ai</p>
+<p>Address: 123 Neural Network Avenue, AI District, Futureville, FT 54321</p>
+</section>
+</div>
+<style>
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0C0C0C;
+    color: #E6E6E6;
+  }
+
+  h1, h2 {
+    font-family: 'Exo 2', sans-serif;
+    color: #3A4CA8;
+  }
+
+  .container {
+    background: linear-gradient(135deg, rgba(58, 76, 168, 0.1), rgba(255, 0, 255, 0.05));
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(255, 0, 255, 0.1);
+  }
+
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  ul li::before {
+    content: "•";
+    color: #00FFFF;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+  }
+
+  a {
+    color: #FF00FF;
+    transition: color 0.3s ease;
+  }
+
+  a:hover {
+    color: #00FFFF;
+    text-decoration: none;
+  }
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+    const sections = document.querySelectorAll('section');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => {
+      section.style.opacity = 0;
+      section.style.transform = 'translateY(20px)';
+      section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(section);
+    });
+  });
+</script>
+</div>
+<footer style="width: 100%; z-index: 1000;">
+<footer class="bg-dark text-light py-4">
+<div class="container">
+<div class="row">
+<div class="col-md-4 mb-3 mb-md-0">
+<h5 class="text-uppercase mb-3" style="font-family: 'Exo 2', sans-serif; color: #00FFFF;">Runway</h5>
+<p style="font-family: 'Roboto', sans-serif; font-size: 0.9rem;">Redefining Creativity in the Age of Intelligent Vision</p>
+</div>
+<div class="col-md-4 mb-3 mb-md-0">
+<h5 class="text-uppercase mb-3" style="font-family: 'Exo 2', sans-serif; color: #00FFFF;">Navigate</h5>
+<ul class="list-unstyled">
+<li><a class="text-light text-decoration-none hover-neon-pink" href="posts.html">Posts</a></li>
+<li><a class="text-light text-decoration-none hover-neon-pink" href="about.html">About</a></li>
+<li><a class="text-light text-decoration-none hover-neon-pink" href="contacts.html">Contacts</a></li>
+<li><a class="text-light text-decoration-none hover-neon-pink" href="privacy_policy.html">Privacy Policy</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<h5 class="text-uppercase mb-3" style="font-family: 'Exo 2', sans-serif; color: #00FFFF;">Connect</h5>
+<div class="d-flex justify-content-start">
+<a class="text-light me-3 hover-electric-teal" href="#"><i class="fab fa-twitter fa-lg"></i></a>
+<a class="text-light me-3 hover-electric-teal" href="#"><i class="fab fa-instagram fa-lg"></i></a>
+<a class="text-light me-3 hover-electric-teal" href="#"><i class="fab fa-linkedin fa-lg"></i></a>
+<a class="text-light hover-electric-teal" href="#"><i class="fab fa-github fa-lg"></i></a>
+</div>
+</div>
+</div>
+<hr class="my-4" style="background-color: #3A4CA8;"/>
+<div class="row">
+<div class="col-md-6 text-center text-md-start">
+<p style="font-family: 'Space Mono', monospace; font-size: 0.8rem;">© 2024 Runway. All rights reserved.</p>
+</div>
+<div class="col-md-6 text-center text-md-end">
+<p style="font-family: 'Space Mono', monospace; font-size: 0.8rem;">Designed with AI-powered creativity</p>
+</div>
+</div>
+</div>
+</footer>
+<style>
+    .hover-neon-pink:hover {
+        color: #FF00FF !important;
+        transition: color 0.3s ease;
+    }
+    .hover-electric-teal:hover {
+        color: #00FFFF !important;
+        transition: color 0.3s ease;
+    }
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    const footer = document.querySelector('footer');
+    footer.style.background = 'linear-gradient(45deg, #0C0C0C, #3A4CA8)';
+    
+    const links = footer.querySelectorAll('a');
+    links.forEach(link => {
+        link.addEventListener('mouseover', (e) => {
+            e.target.style.textShadow = '0 0 10px currentColor';
+        });
+        link.addEventListener('mouseout', (e) => {
+            e.target.style.textShadow = 'none';
+        });
+    });
+});
+</script>
+</footer>
+</body>
+</html>
